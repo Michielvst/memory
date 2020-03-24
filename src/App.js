@@ -5,7 +5,18 @@ import Card from "./components/Card";
 const wait = (amount = 0) =>
   new Promise(resolve => setTimeout(resolve, amount));
 
-const typesCards = [
+function shuffle(a) {
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    x = a[i];
+    a[i] = a[j];
+    a[j] = x;
+  }
+  return a;
+}
+
+let typesCards = [
   "square",
   "circle",
   "heart",
@@ -27,7 +38,7 @@ const typesCards = [
   "starFive2",
   "hexagon2"
 ];
-
+shuffle(typesCards);
 class App extends React.Component {
   state = {
     selected: [],

@@ -206,7 +206,7 @@
   background-color: #b80d57;
 }
 
-.notSelected0 > div {
+.notSelected > div {
   opacity: 0;
 }
 
