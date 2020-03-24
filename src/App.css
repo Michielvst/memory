@@ -1,38 +1,236 @@
-.App {
-  text-align: center;
+:root {
+  --size: 1;
 }
 
-.App-logo {
-  height: 40vmin;
+@media only screen and (max-width: 600px) {
+  :root {
+    --size: 0.75;
+  }
+}
+
+.square,
+.square2 {
+  width: calc(100px * var(--size));
+  height: calc(100px * var(--size));
+  background: #ffd868;
+}
+
+.circle,
+.circle2 {
+  width: calc(100px * var(--size));
+  height: calc(100px * var(--size));
+  background: #ffd868;
+  border-radius: 50%;
+}
+
+.heart,
+.heart2 {
+  position: relative;
+  width: calc(100px * var(--size));
+  height: calc(90px * var(--size));
+}
+.heart:before,
+.heart2:before,
+.heart:after,
+.heart2:after {
+  position: absolute;
+  content: "";
+  left: calc(50px * var(--size));
+  top: 0;
+  width: calc(50px * var(--size));
+  height: calc(80px * var(--size));
+  background: #ffd868;
+  border-radius: calc(50px * var(--size)) calc(50px * var(--size)) 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+.heart:after,
+.heart2:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.triangleUp,
+.triangleUp2 {
+  width: 0;
+  height: 0;
+  border-left: calc(50px * var(--size)) solid transparent;
+  border-right: calc(50px * var(--size)) solid transparent;
+  border-bottom: calc(100px * var(--size)) solid #ffd868;
+}
+
+.triangleDown,
+.triangleDown2 {
+  width: 0;
+  height: 0;
+  border-left: calc(50px * var(--size)) solid transparent;
+  border-right: calc(50px * var(--size)) solid transparent;
+  border-top: calc(100px * var(--size)) solid #ffd868;
+}
+
+.trapezoid,
+.trapezoid2 {
+  border-bottom: calc(100px * var(--size)) solid #ffd868;
+  border-left: calc(25px * var(--size)) solid transparent;
+  border-right: calc(25px * var(--size)) solid transparent;
+  height: 0;
+  width: calc(100px * var(--size));
+}
+
+.parallelogram,
+.parallelogram2 {
+  width: calc(150px * var(--size));
+  height: calc(100px * var(--size));
+  transform: skew(20deg);
+  background: #ffd868;
+}
+
+.diamond,
+.diamond2 {
+  width: 0;
+  height: 0;
+  border: calc(50px * var(--size)) solid transparent;
+  border-bottom-color: #ffd868;
+  position: relative;
+  top: calc(-50px * var(--size));
+}
+.diamond:after,
+.diamond2:after {
+  content: "";
+  position: absolute;
+  left: calc(-50px * var(--size));
+  top: calc(50px * var(--size));
+  width: 0;
+  height: 0;
+  border: calc(50px * var(--size)) solid transparent;
+  border-top-color: #ffd868;
+}
+
+.starFive,
+.starFive2 {
+  margin: calc(25px * var(--size)) 0;
+  position: relative;
+  display: block;
+  color: #ffd868;
+  width: 0px;
+  height: 0px;
+  border-right: calc(50px * var(--size)) solid transparent;
+  border-bottom: calc(35px * var(--size)) solid #ffd868;
+  border-left: calc(50px * var(--size)) solid transparent;
+  transform: rotate(35deg);
+}
+.starFive:before,
+.starFive2:before {
+  border-bottom: calc(40px * var(--size)) solid #ffd868;
+  border-left: calc(15px * var(--size)) solid transparent;
+  border-right: calc(15px * var(--size)) solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: calc(-22.5px * var(--size));
+  left: calc(-32.5px * var(--size));
+  display: block;
+  content: "";
+  transform: rotate(-35deg);
+}
+.starFive:after,
+.starFive2:after {
+  position: absolute;
+  display: block;
+  color: #ffd868;
+  top: calc(1.5px * var(--size));
+  left: calc(-52.5px * var(--size));
+  width: 0px;
+  height: 0px;
+  border-right: calc(50px * var(--size)) solid transparent;
+  border-bottom: calc(35px * var(--size)) solid #ffd868;
+  border-left: calc(50px * var(--size)) solid transparent;
+  transform: rotate(-70deg);
+  content: "";
+}
+
+.hexagon,
+.hexagon2 {
+  width: calc(100px * var(--size));
+  height: calc(55px * var(--size));
+  background: #ffd868;
+  position: relative;
+}
+.hexagon:before,
+.hexagon2:before {
+  content: "";
+  position: absolute;
+  top: calc(-25px * var(--size));
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: calc(50px * var(--size)) solid transparent;
+  border-right: calc(50px * var(--size)) solid transparent;
+  border-bottom: calc(25px * var(--size)) solid #ffd868;
+}
+.hexagon:after,
+.hexagon2:after {
+  content: "";
+  position: absolute;
+  bottom: calc(-25px * var(--size));
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: calc(50px * var(--size)) solid transparent;
+  border-right: calc(50px * var(--size)) solid transparent;
+  border-top: calc(25px * var(--size)) solid #ffd868;
+}
+
+.Card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.figure {
+  max-width: 50%;
+}
+
+.App {
+  background-color: #721b65;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 0.5em;
+  grid-template-rows: 24vh 24vh 24vh 24vh;
+  row-gap: 0.5em;
+}
+
+.notSelected {
+  background-color: #b80d57;
+}
+
+.notSelected0 > div {
+  opacity: 0;
+}
+
+.selected {
+  background-color: #f8615a;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.removed {
+  opacity: 0;
+  pointer-events: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.notClickable {
+  pointer-events: none;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media only screen and (max-width: 600px) {
+  .App {
+    background-color: #721b65;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 0.5em;
+    grid-template-rows: repeat(10, 1fr);
+    row-gap: 0.5em;
   }
 }
