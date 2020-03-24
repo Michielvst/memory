@@ -42,28 +42,7 @@ shuffle(typesCards);
 class App extends React.Component {
   state = {
     selected: [],
-    toRemove: [
-      "square",
-      "circle",
-      "heart",
-      "triangleUp",
-      "triangleDown",
-      "trapezoid",
-      "parallelogram",
-      "diamond",
-      "starFive",
-      "hexagon",
-      "square2",
-      "circle2",
-      "heart2",
-      "triangleUp2",
-      "triangleDown2",
-      "trapezoid2",
-      "parallelogram2",
-      "diamond2",
-      "starFive2",
-      "hexagon2"
-    ]
+    toRemove: [...typesCards]
   };
 
   appRef = React.createRef();
@@ -97,9 +76,24 @@ class App extends React.Component {
     });
   };
 
+  handleRestart = () => {
+    this.setState({
+      toRemove: [...typesCards]
+    });
+  };
+
   gewonnen = () => {
     if (this.state.toRemove.length === 0) {
-      return <p>kak</p>;
+      return (
+        <div className="gewonnen">
+          <div className="box">
+            <h1>You Win!</h1>
+            <button className="restartButton" onClick={this.handleRestart}>
+              restart
+            </button>
+          </div>
+        </div>
+      );
     }
   };
 
